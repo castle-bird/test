@@ -1,0 +1,76 @@
+#game-section {
+    display: none;
+}
+
+#game-section .alert-msg {
+    margin: 1.5rem auto;
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+#game-section .alert-msg .current-player {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0064FF;
+}
+
+.game-end {
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 1.5rem 2.5rem;
+    background-color: #F4F4F4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    display: none;
+}
+
+.game-end h2 {
+    
+    color: #333;
+    margin-bottom: 1rem;
+}
+.game-end h2 .winner-name {
+    font-size: 2rem;
+    padding-right: 10px;
+}
+
+.game-end p {
+    font-size: 1rem;
+    color: #555;
+}
+
+#game-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 20rem;
+    margin: 2rem auto;
+}
+
+#game-area li {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #FFF;
+    border: 2px solid #E0E0E0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+#game-area li:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+}
+
+#game-area li.active {
+    background-color: #0064FF;
+    color: #FFF;
+}
