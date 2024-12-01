@@ -5,8 +5,6 @@ import handlebars from "vite-plugin-handlebars";
 import viteImagemin from "vite-plugin-imagemin";
 import { globSync } from "glob";
 import { fileURLToPath } from "node:url";
-import copy from "rollup-plugin-copy";
-import html from "@rollup/plugin-html";
 
 export default defineConfig({
     /**
@@ -73,18 +71,21 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: Object.fromEntries(
-                globSync('src/assets/js/common.js').map(file => [
+                globSync('src/pages/**/*.html').map(file => [
                     path.relative(
-                        'src/assets',
+                        'src',
                         file.slice(0, file.length - path.extname(file).length)
                     ),
                     fileURLToPath(new URL(file, import.meta.url))
                 ])
             ),
-
             output: {
                 dir: "dist",
-            },
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name == 'style.css')
+                      return 'customname.css';
+                  },
+              },
         },
     },
 });
